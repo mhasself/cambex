@@ -202,10 +202,10 @@ class CambSession:
             k_, T_ = kT_[0], kT_[1:]
             if k2 is None:
                 k2 = k_
-                T = np.empty((len(self.redshifts), len(k2)))
+                T = np.empty((len(self.redshifts),) + T_.shape)
             else:
                 assert np.all(k2==k_)
-            T[j] = T_[6]
+            T[j] = T_
         return (CambResult([
                     ('k', k), ('P', P)]),
                 CambResult([
